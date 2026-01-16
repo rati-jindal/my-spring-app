@@ -1,27 +1,30 @@
-package com.logicorp.inventory.common;
+package com.logicorp.inventory.common; // (Or wherever your Student class is)
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+
+@Entity // 1. Maps this class to a Database Table
 public class Student {
-    private String firstname;
-    private String lastname;
 
-    public Student(String firstname, String lastname) {
-        this.firstname = firstname;
-        this.lastname = lastname;
+    @Id // 2. This is the Primary Key
+    @GeneratedValue(strategy = GenerationType.IDENTITY) // 3. Auto-Increment (1, 2, 3...)
+    private Long id;
+
+    private String firstName;
+    private String lastName;
+
+    // Required by JPA: A Default (Empty) Constructor
+    public Student() {}
+
+    public Student(String firstName, String lastName) {
+        this.firstName = firstName;
+        this.lastName = lastName;
     }
 
-    public String getFirstName() {
-        return firstname;
-    }
-
-    public void setFirstName(String firstname) {
-        this.firstname = firstname;
-    }
-
-    public String getLastName() {
-        return lastname;
-    }
-
-    public void setLastName(String lastname) {
-        this.lastname = lastname;
-    }
+    // Getters and Setters...
+    public Long getId() { return id; }
+    public String getFirstName() { return firstName; }
+    public String getLastName() { return lastName; }
 }
