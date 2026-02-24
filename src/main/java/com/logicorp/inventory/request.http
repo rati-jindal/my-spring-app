@@ -1,0 +1,41 @@
+### Create Messi
+POST http://localhost:9090/students
+Content-Type: application/json
+
+{
+  "firstName": "Lionel",
+  "lastName": "Messi"
+}
+
+### Create Ronaldo
+POST http://localhost:9090/students
+Content-Type: application/json
+
+{
+  "firstName": "Cristiano",
+  "lastName": "Ronaldo"
+}
+
+### Delete the duplicate Messi (ID 2)
+DELETE http://localhost:9090/students/2
+
+### Search for Messi
+GET http://localhost:9090/students/search?name=Messi
+
+### Create a Ghost Student (This should fail!)
+POST http://localhost:9090/students
+Content-Type: application/json
+
+{
+  "firstName": "",
+  "lastName": "   "
+}
+
+### Update Messi to Leo
+PUT http://localhost:9090/students/1
+Content-Type: application/json
+
+{
+  "firstName": "Leo",
+  "lastName": "Messi"
+}
